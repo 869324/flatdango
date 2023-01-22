@@ -1,7 +1,7 @@
 import styles from "./header.module.css";
 
 function Header(props) {
-  const { setSearch } = props;
+  const { setSearch, setAdd } = props;
 
   return (
     <div className={styles.header}>
@@ -13,7 +13,7 @@ function Header(props) {
         onChange={(e) => setSearch(e.target.value)}
       />
 
-      <button>Add</button>
+      <button onClick={() => setAdd(true)}>Add</button>
     </div>
   );
 }

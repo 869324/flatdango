@@ -10,7 +10,7 @@
   align-items: center;
 }
 
-form {
+.form {
   width: 60%;
   height: 50%;
   border-radius: 10px;
@@ -21,7 +21,7 @@ form {
   background-color: rgba(250, 250, 250, 0.8);
 }
 
-input {
+.input {
   font-size: 17px;
   outline: none;
   padding: 5px;
@@ -29,7 +29,7 @@ input {
   border: none;
 }
 
-button {
+.button {
   background-color: green;
   color: white;
   font-weight: bold;

@@ -1,23 +1,10 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import styles from "./transactions.module.css";
 
 function Transactions(props) {
-  const { search } = props;
+  const { search, transactions } = props;
 
-  const [transactions, setTransactions] = useState([]);
   const [filteredTransactions, setFilteredTransactions] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get("http://localhost:3000/transactions", {})
-      .then((response) => {
-        setTransactions(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
 
   useEffect(() => {
     if (search && search !== "") {
