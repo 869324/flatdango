@@ -1,4 +1,4 @@
-.transactions {
+.movies {
   width: 100%;
   height: 93%;
   overflow-y: auto;
@@ -9,7 +9,7 @@
   align-items: center;
 }
 
-.transaction {
+.movie {
   width: 80%;
   height: auto;
   box-shadow: 0px 3px 10px rgba(250, 250, 250, 0.4);

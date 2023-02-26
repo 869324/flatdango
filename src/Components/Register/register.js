@@ -1,13 +1,10 @@
-import { NavLink } from "react-router-dom";
-import styles from "./login.module.css";
+import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import swal from "sweetalert";
+import styles from "./register.module.css";
 
-function Login(props) {
-  const { setUser } = props;
-
+function Register(props) {
   const [formData, setFormData] = useState({});
   const navigate = useNavigate();
 
@@ -18,26 +15,13 @@ function Login(props) {
     }));
   };
 
-  const onSubmit = (e) => {
+  const register = (e) => {
     e.preventDefault();
+    console.log(formData);
     axios
-      .get("http://localhost:3000/users")
+      .post("http://localhost:3000/users", formData)
       .then((res) => {
-        const users = res.data;
-
-        const user = users.find(
-          (u) => u.email == formData.email && u.password == formData.password
-        );
-
-        if (user) {
-          setUser(user);
-          navigate("/movies");
-        } else {
-          swal({
-            icon: "error",
-            text: "Invalid credentials",
-          });
-        }
+        navigate("/login");
       })
       .catch((error) => {
         swal({
@@ -49,14 +33,32 @@ function Login(props) {
 
   return (
     <div className={styles.login}>
-      <form onSubmit={onSubmit} className={styles.form}>
+      <form onSubmit={register} className={styles.form}>
+        <input
+          name="firstname"
+          placeholder="First Name"
+          required
+          className={styles.input}
+          onChange={handleChange}
+        />
+
+        <input
+          name="lastname"
+          placeholder="Last Name"
+          required
+          className={styles.input}
+          onChange={handleChange}
+        />
+
         <input
           name="email"
           placeholder="Email"
           required
           className={styles.input}
           onChange={handleChange}
+          type="email"
         />
+
         <input
           name="password"
           type="password"
@@ -65,12 +67,10 @@ function Login(props) {
           className={styles.input}
           onChange={handleChange}
         />
-        <button className={styles.button}>Login</button>
-
-        <NavLink to="/register">Register</NavLink>
+        <button className={styles.button}>Register</button>
       </form>
     </div>
   );
 }
 
-export default Login;
+export default Register;
