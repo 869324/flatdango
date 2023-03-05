@@ -31,10 +31,41 @@
 
 .input {
   width: 100%;
-  padding: 5px;
+  padding: 10px;
   font-size: 17px;
+  border-radius: 10px;
+  font-size: 17px;
+  outline: none;
+  border: none;
 }
 
 .label {
   margin-bottom: 5px;
+  font-size: 17px;
+}
+
+.submit {
+  background-color: chocolate;
+  border: none;
+  color: whitesmoke;
+  font-size: 17px;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 10px 20px;
+}
+
+.cancel {
+  border: 1px solid chocolate;
+  color: black;
+  font-size: 17px;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 10px 20px;
+}
+
+.actions {
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
